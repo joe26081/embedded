@@ -1,20 +1,15 @@
 #include <stdio.h>
 #include <stdlib.h>
-int number;
-
+static int counter;
+void fun (void)
+{
+    counter++;
+    printf("The function has been called\n");
+}
 int main()
 {
-    again:
-    printf("Enter number = ");
-    scanf("%d",&number);
-    printf("\n\t number++ = %d\n" ,number++);
-    printf("\t But number become in memory = %d\n" ,number);
-    printf("\n\t\t number-- = %d\n" ,number--);
-    printf("\t\t But number become in memory = %d\n" ,number);
-    printf("\n\t\t\t ++number = %d\n" ,++number);
-    printf("\t\t\t But number become in memory = %d\n" ,number);
-    printf("\n\t\t\t\t --number = %d\n" ,--number);
-    printf("\t\t\t\t But number become in memory = %d\n\n" ,number);
-    goto again;
+    for(int i=0 ; i<5 ; i++)
+      fun ();
+    printf("The number of times the function is called=%d",counter);
     return 0;
 }
